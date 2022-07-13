@@ -1,10 +1,12 @@
 import type { NextPage } from 'next'
 
+import DefaultLayout from '../layouts/DefaultLayout';
+
 const Home: NextPage = () => {
   return (
-    <div>
+    <DefaultLayout>
       <h1>Initial Commit!</h1>
-    </div>
+    </DefaultLayout>
   );
 }
 
