@@ -19,7 +19,21 @@ const generateVimscriptConfig = (config: VimConfig): string => {
 }
 
 const generateLuaConfig = (config: VimConfig): string => {
-  return '';
+  const currentDate = new Date();
+  let resultString = '';
+
+  resultString += `-- Generated on ${currentDate.getMonth() + 1}/${currentDate.getDate()}\n\n`;
+  resultString += '-- Options\n\n';
+  if (config.syntax) resultString += `vim.opt.syntax = 'on';\n`;
+  if (config.number) resultString += `vim.opt.number = true;\n`;
+  if (config.ruler) resultString += `vim.opt.ruler = true;\n\n`;
+  resultString += '-- Spacing\n\n';
+  resultString += `vim.opt.tabstop = ${config.tabStop};\n`;
+  resultString += `vim.opt.shiftwidth = ${config.shiftWidth};\n`;
+  resultString += `vim.opt.softtabstop = ${config.softTabStop};\n`;
+  if (config.expandTab) resultString += 'vim.opt.expandtab = true;';
+
+  return resultString;
 }
 
 export { generateVimscriptConfig, generateLuaConfig };
