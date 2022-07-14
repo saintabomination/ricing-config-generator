@@ -13,7 +13,7 @@ const generateVimscriptConfig = (config: VimConfig): string => {
   resultString += `set tabstop=${config.tabStop}\n`;
   resultString += `set shiftwidth=${config.shiftWidth}\n`;
   resultString += `set softtabstop=${config.softTabStop}\n`;
-  if (config.expandTab) resultString += 'set expandtab';
+  if (config.expandTab) resultString += 'set expandtab\n';
 
   switch (config.plugin) {
     case 'vimplug':
@@ -39,7 +39,7 @@ const generateLuaConfig = (config: VimConfig): string => {
   resultString += `vim.opt.tabstop = ${config.tabStop};\n`;
   resultString += `vim.opt.shiftwidth = ${config.shiftWidth};\n`;
   resultString += `vim.opt.softtabstop = ${config.softTabStop};\n`;
-  if (config.expandTab) resultString += 'vim.opt.expandtab = true;';
+  if (config.expandTab) resultString += 'vim.opt.expandtab = true;\n';
 
   switch (config.plugin) {
     case 'vimplug':

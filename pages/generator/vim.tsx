@@ -46,6 +46,12 @@ const Vim: NextPage = () => {
     }
   }
 
+  const copyToClipboard = () => {
+    if (resultRef.current) {
+      navigator.clipboard.writeText(resultRef.current.value); 
+    }
+  }
+
   return (
     <DefaultLayout>
       <h1>Vim</h1>
@@ -90,7 +96,8 @@ const Vim: NextPage = () => {
           resize: 'none',
         }}
         readOnly
-      ></textarea>
+      ></textarea><br />
+      <button onClick={() => copyToClipboard()}>Copy to clipboard</button>
     </DefaultLayout>
   );
 }
