@@ -25,6 +25,7 @@ const Vim: NextPage = () => {
       shiftWidth: target.shiftwidth.value,
       softTabStop: target.softtabstop.value,
       expandTab: target.expandtab.checked,
+      plugin: target.plugin.value,
     };
 
     if (resultRef.current) {
@@ -67,6 +68,11 @@ const Vim: NextPage = () => {
         <input type="number" name="softtabstop" defaultValue={defaultSpacingValue} required /><br />
         <label htmlFor="expandtab">Expand tab</label>
         <input type="checkbox" name="expandtab" />
+        <h2>Plugin Manager</h2>
+        <select name="plugin">
+          <option value="none">None</option>
+          <option value="vimplug">VimPlug</option>
+        </select>
         <h2>Language</h2>
         <input type="radio" name="language" value="vimscript" required />
         <label htmlFor="language">VimScript</label>

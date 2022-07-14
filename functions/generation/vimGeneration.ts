@@ -15,6 +15,14 @@ const generateVimscriptConfig = (config: VimConfig): string => {
   resultString += `set softtabstop=${config.softTabStop}\n`;
   if (config.expandTab) resultString += 'set expandtab';
 
+  switch (config.plugin) {
+    case 'vimplug':
+      resultString += '\n" VimPlug\n';
+      resultString += 'call plug#begin()\n\n';
+      resultString += 'call plug#end()';
+      break;
+  }
+
   return resultString;
 }
 
@@ -32,6 +40,15 @@ const generateLuaConfig = (config: VimConfig): string => {
   resultString += `vim.opt.shiftwidth = ${config.shiftWidth};\n`;
   resultString += `vim.opt.softtabstop = ${config.softTabStop};\n`;
   if (config.expandTab) resultString += 'vim.opt.expandtab = true;';
+
+  switch (config.plugin) {
+    case 'vimplug':
+      resultString += '\n-- VimPlug\n';
+      resultString += `local Plug = vim.fn['plug#'];\n`;
+      resultString += `vim.call('plug#begin');\n\n`;
+      resultString += `vim.call('plug#end');`;
+      break;
+  }
 
   return resultString;
 }

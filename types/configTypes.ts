@@ -6,4 +6,5 @@ export type VimConfig = {
   softTabStop: number;
   shiftWidth: number;
   expandTab: boolean;
+  plugin: 'none' | 'vimplug';
 };
