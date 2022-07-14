@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={mainTheme}>
       <ResetStyles />
       <MainStyle />
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
