@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@storybook/addon-docs": "^6.5.9",
+    "@xstyled/styled-components": "^3.6.0",
     "next": "12.2.2",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
