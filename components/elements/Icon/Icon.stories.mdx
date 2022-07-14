@@ -1,14 +1,45 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import Icon from './Icon.component';
 
-<Meta title="Component/Icon" component={Icon} />
+<Meta
+  title="Component/Icon"
+  component={Icon}
+  argTypes={{
+    name: {
+      control: {
+        type: 'text',
+      },
+    },
+    type: {
+      options: ['fas', 'fab'],
+      control: {
+        type: 'radio',
+      },
+    },
+    size: {
+      control: {
+        type: 'number',
+        step: 0.2,
+      },
+    },
+  }}
+/>
+
+export const Template = args => <Icon {...args} />;
 
 # Icon
 
 This is the `Icon` component documentation.
 
 <Canvas>
-  <Story name="Default">
-    <Icon iconName="paper-plane" iconType="fas" />
+  <Story
+    name="Default"
+    args={{
+      name: 'paper-plane',
+      type: 'fas',
+      size: 1.0,
+    }}
+  >
+    {Template.bind({})}
   </Story>
 </Canvas>
